@@ -14,10 +14,21 @@ contenuto = foto di Timothée Chalamet;
 stile = “Notte stellata” (Van Gogh), “L’Urlo” (Munch), “Convergence” (Pollock), “Giudizio universale” (Michelangelo).
 
 
-# Risultati ottenuti
+## Risultati e riflessioni
 
-Ispirandosi al lavoro di Gatys et al. (2015) 
-Dalle ricostruzioni emerge che i primi layer conservano dettagli locali (bordi/texture fini), mentre i layer profondi astraggono la struttura globale/semantica del contenuto. Per lo stile, i layer superficiali rendono pattern minuti, quelli profondi consolidano coerenza stilistica globale. Nelle immagini finali stile+contenuto, il bilanciamento α/β e i pesi dei layer di contenuto determinano quanta texture “invade” la scena: enfatizzare conv1 produce trame fini; conv5 dà tratti stilistici ampi. Tracciando le perdite, lo stile domina la loss nonostante β≪α, perché partendo dalla foto il termine di contenuto è inizialmente piccolo. 
+Ispirandoci a Gatys et al. (2015), i nostri esperimenti mostrano che la scala delle rappresentazioni nei diversi layer di VGG19 controlla direttamente l’aspetto delle ricostruzioni: quando il **contenuto** è imposto su layer bassi emergono bordi e micro-dettagli ma la struttura globale resta instabile; su layer intermedi/alti (es. conv4_2) si preserva meglio la **semantica complessiva** a scapito di qualche finezza locale. Per lo **stile**, usare le Gram dei soli primi layer produce **trame fini** e grana minuta, mentre includere progressivamente layer più profondi consolida **palette** e **pattern su larga scala**. Nella **fusione stile+contenuto** il rapporto \( \alpha/\beta \) governa l’“invasività” dello stile: \( \alpha \) alto mantiene la forma del soggetto, \( \beta \) alto fa entrare più texture e cromie; oltre al rapporto globale, i pesi per layer di stile permettono di modulare la **scala** della texture (enfatizzare conv1 → trame fini; conv5 → campiture e tratti ampi). Dinamicamente, partendo dall’immagine di contenuto \( \mathcal{L}_{\text{content}} \) è inizialmente piccola e \( \mathcal{L}_{\text{style}} \) tende a dominare i primi passi anche con \( \beta \ll \alpha \), spiegando perché le caratteristiche stilistiche compaiono presto.
+
+<!-- FIGURA 1: Contenuto vs layer -->
+<p align="center">
+  <img src="assets/contenuto.jpg" alt="Ricostruzione del contenuto al variare del layer (conv1_2 → conv5_2)" width="900">
+</p>
+<p align="center"><em>Figura 1 — Ricostruzione del contenuto su conv1_2, conv2_2, conv3_2, conv4_2, conv5_2.</em></p>
+
+<!-- FIGURA 2: Stile vs layer -->
+<p align="center">
+  <img src="assets/stile.png" alt="Ricostruzione dello stile usando Gram su insiemi di layer (conv1 → conv1–2 → … → conv1–5)" width="900">
+</p>
+<p align="center"><em>Figura 2 — Ricostruzione dello stile usando matrici di Gram su insiemi crescenti di layer (solo conv1 → conv1–2 → … → conv1–5).</em></p>
 
 
 # Prerequisiti:
