@@ -1,17 +1,17 @@
-# Portfolio
-
 # Neural transfer project
 
- # Setup (come funziona)
+## Setup (come funziona)
 
-Il Trasferimento di Stile Neurale (NTS) è una tecnica che genera un’immagine “ibrida” combinando il contenuto di un'immagine (es. foto) con lo stile di un'altra (es. dipinto). Si usa una CNN pre-addestrata (VGG19): il contenuto è rappresentato dalle attivazioni dei layer profondi (catturano struttura/oggetti), mentre lo stile è modellato con le matrici di Gram delle feature su più layer (catturano texture e correlazioni tra filtri). L’immagine generata viene ottimizzata per minimizzare una loss totale 
-𝐿=𝛼𝐿𝑐𝑜𝑛𝑡𝑒𝑛𝑡+𝛽𝐿𝑠𝑡𝑦𝑙𝑒L=αLcontent+βLstyle
-, così da bilanciare fedeltà al contenuto e coerenza stilistica.
+Il Trasferimento di Stile Neurale (NTS) è una tecnica che genera un’immagine “ibrida” combinando il contenuto di un'immagine (es. foto) con lo stile di un'altra (es. dipinto). Si usa una CNN pre-addestrata (VGG19): il contenuto è rappresentato dalle attivazioni dei layer profondi (catturano struttura/oggetti), mentre lo stile è modellato con le matrici di Gram delle feature su più layer (catturano texture e correlazioni tra filtri). L’immagine generata viene ottimizzata per minimizzare la loss totale
 
-Si è usato VGG19 considerando solo i layer convoluzionali. Per studiare la fusione stile–contenuto:
+$$
+\mathcal{L} = \alpha\, \mathcal{L}_{\text{content}} + \beta\, \mathcal{L}_{\text{style}} .
+$$
 
-contenuto = foto di Timothée Chalamet; 
-stile = “Notte stellata” (Van Gogh), “L’Urlo” (Munch), “Convergence” (Pollock), .
+così da bilanciare fedeltà al contenuto e coerenza stilistica. Si è usato VGG19 considerando solo i layer convoluzionali. Per studiare la fusione stile–contenuto:
+
+contenuto = foto di Timothée Chalamet;  
+stile = “Notte stellata” (Van Gogh), “L’Urlo” (Munch), “Convergence” (Pollock), “Giudizio universale” (Michelangelo).
 
 # Risultati ottenuti
 
