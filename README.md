@@ -5,7 +5,7 @@
 Il Trasferimento di Stile Neurale (NTS) è una tecnica che genera un’immagine “ibrida” combinando il contenuto di un'immagine (es. foto) con lo stile di un'altra (es. dipinto). Si usa una CNN pre-addestrata (VGG19): il contenuto è rappresentato dalle attivazioni dei layer profondi (catturano struttura/oggetti), mentre lo stile è modellato con le matrici di Gram delle feature su più layer (catturano texture e correlazioni tra filtri). L’immagine generata viene ottimizzata per minimizzare la loss totale
 
 $$
-\mathcal{L} = \alpha\, \mathcal{L}_{\text{content}} + \beta\, \mathcal{L}_{\text{style}}
+\mathcal{L} = \alpha \,\mathcal{L}_{\text{content}} + \beta \,\mathcal{L}_{\text{style}}
 $$
 
 così da bilanciare fedeltà al contenuto e coerenza stilistica. Si è usato VGG19 considerando solo i layer convoluzionali. Per studiare la fusione stile–contenuto:
@@ -13,8 +13,10 @@ così da bilanciare fedeltà al contenuto e coerenza stilistica. Si è usato VGG
 contenuto = foto di Timothée Chalamet;  
 stile = “Notte stellata” (Van Gogh), “L’Urlo” (Munch), “Convergence” (Pollock), “Giudizio universale” (Michelangelo).
 
+
 # Risultati ottenuti
 
+Ispirandosi al lavoro di Gatys et al. (2015) 
 Dalle ricostruzioni emerge che i primi layer conservano dettagli locali (bordi/texture fini), mentre i layer profondi astraggono la struttura globale/semantica del contenuto. Per lo stile, i layer superficiali rendono pattern minuti, quelli profondi consolidano coerenza stilistica globale. Nelle immagini finali stile+contenuto, il bilanciamento α/β e i pesi dei layer di contenuto determinano quanta texture “invade” la scena: enfatizzare conv1 produce trame fini; conv5 dà tratti stilistici ampi. Tracciando le perdite, lo stile domina la loss nonostante β≪α, perché partendo dalla foto il termine di contenuto è inizialmente piccolo. 
 
 
