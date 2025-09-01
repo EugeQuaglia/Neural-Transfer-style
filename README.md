@@ -75,7 +75,7 @@ pip install -r requirements.txt
 Metti le immagini in data/, ad esempio:
 
 ```
-data/Themothee.png
+data/Timothee.jpg
 data/Notte stellata.jpg
 ```
 
@@ -102,19 +102,19 @@ python ./src/core.py --content_path "data/YourContent.jpg" --style_path "data/No
 
 Parametri principali
 
--content_path / --style_path / --output_path
+- --content_path / --style_path / --output_path
 
--imsize → 256 / 384 / 512 (più grande = più lento, più dettagli)
+- --imsize → 256 / 384 / 512 (più grande = più lento, più dettagli)
 
--steps → iterazioni di ottimizzazione (200–1000 per test rapidi)
+- --steps → iterazioni di ottimizzazione (200–1000 per test rapidi)
 
--lr → learning rate (0.01–0.05 tipico)
+- --lr → learning rate (0.01–0.05 tipico)
 
--alpha → peso contenuto
+- --alpha → peso contenuto
 
--beta → peso stile (di solito alto: 50_000–100_000)
+- --beta → peso stile (di solito alto: 50_000–100_000)
 
--init → content (stabile) o noise (più creativo)
+- --init → content (stabile) o noise (più creativo)
 
 Durante il run vedrai log della loss; l’immagine viene salvata in --output_path.
 
