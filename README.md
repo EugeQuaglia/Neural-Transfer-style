@@ -121,5 +121,5 @@ Durante il run vedrai log della loss; l’immagine viene salvata in --output_pat
 ## Contatti
 
 - Email: <eugenioquaglia@gmail.com>
-- LinkedIn: <[LinkedIn](https://www.linkedin.com/in/eugenio-quaglia-86114a372/)>
-- Portfolio: <[[Portfolio](https://github.com/EugeQuaglia/Portfolio/tree/main?tab=readme-ov-file)>
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/eugenio-quaglia-86114a372/)
+- Portfolio: [Portfolio](https://github.com/EugeQuaglia/Portfolio/tree/main?tab=readme-ov-file)
